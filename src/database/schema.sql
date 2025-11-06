@@ -120,7 +120,7 @@ CREATE TABLE vagas (
     requisitos TEXT,
     beneficios TEXT,
     status VARCHAR(50) DEFAULT 'aberta', 
-    criado_por INTEGER REFERENCES users(id),
+    criado_por INTEGER REFERENCES usuarios(id),
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -205,36 +205,45 @@ INSERT INTO vagas (titulo, departamento, localizacao, descricao, requisitos, ben
 
 
 
-('Analista de Suporte Júnior', 'Atendimento a usuários internos', 'Tecnologia', 'São Paulo - SP', 2800.00, 'FECHADA', 4),
-('Desenvolvedor Front-end', 'Desenvolvimento de interfaces web', 'Tecnologia', 'Remoto', 6500.00, 'FECHADA', 7),
-('Desenvolvedor Back-end', 'APIs e microsserviços', 'Tecnologia', 'São Paulo - SP', 7500.00, 'FECHADA', 2),
-('Designer Gráfico', 'Edição e criação de peças digitais', 'Marketing', 'Rio de Janeiro - RJ', 4000.00, 'FECHADA', 9),
-('Analista de Marketing', 'Planejamento de campanhas', 'Marketing', 'Remoto', 4500.00, 'FECHADA', 3),
-('Assistente Administrativo', 'Organização de processos internos', 'Administrativo', 'São Paulo - SP', 2500.00, 'FECHADA', 10),
-('Gerente de Projetos', 'Gestão de squads ágeis', 'Tecnologia', 'Remoto', 12000.00, 'FECHADA', 1),
-('UX Designer', 'Pesquisa e prototipação de interfaces', 'Tecnologia', 'Curitiba - PR', 7000.00, 'FECHADA', 13),
-('Analista de Dados', 'Dashboards e KPIs', 'Business Intelligence', 'São Paulo - SP', 8200.00, 'FECHADA', 6),
-('Estagiário de TI', 'Auxiliar equipe técnica', 'Tecnologia', 'São Paulo - SP', 1500.00, 'FECHADA', 8),
-('Coordenador Financeiro', 'Gestão financeira e relatórios', 'Financeiro', 'Belo Horizonte - MG', 9500.00, 'FECHADA', 11),
-('Especialista em SEO', 'Otimização para mecanismos de busca', 'Marketing', 'Remoto', 6000.00, 'FECHADA', 14),
-('Redator Publicitário', 'Criação de textos para campanhas', 'Marketing', 'Rio de Janeiro - RJ', 3500.00, 'FECHADA', 12),
-('Analista de RH', 'Recrutamento e seleção', 'Recursos Humanos', 'Curitiba - PR', 4800.00, 'FECHADA', 15),
-('Tech Recruiter', 'Recrutamento para área de TI', 'Recursos Humanos', 'Remoto', 5200.00, 'FECHADA', 16),
-('Product Owner', 'Gestão de backlog e visão do produto', 'Tecnologia', 'São Paulo - SP', 11000.00, 'FECHADA', 18),
-('Product Manager', 'Definição estratégica do produto', 'Tecnologia', 'Remoto', 13000.00, 'FECHADA', 19),
-('Analista de Segurança da Informação', 'Monitoramento e compliance', 'Tecnologia', 'São Paulo - SP', 9800.00, 'FECHADA', 5),
-('Auxiliar de RH', 'Apoio em processos de pessoas', 'Recursos Humanos', 'Belo Horizonte - MG', 2800.00, 'FECHADA', 20),
-('Assistente de Marketing', 'Suporte em campanhas digitais', 'Marketing', 'Curitiba - PR', 2600.00, 'FECHADA', 21),
-('Desenvolvedor Mobile', 'Aplicativos iOS/Android', 'Tecnologia', 'Remoto', 9000.00, 'FECHADA', 22),
-('DBA Júnior', 'Administração de bancos de dados', 'Tecnologia', 'São Paulo - SP', 6500.00, 'FECHADA', 23),
-('Coordenador de Marketing', 'Gestão de equipe e KPIs', 'Marketing', 'Rio de Janeiro - RJ', 10000.00, 'FECHADA', 24),
-('Analista Contábil', 'Fechamento e conciliação', 'Financeiro', 'Curitiba - PR', 5000.00, 'FECHADA', 25),
-('QA Tester', 'Testes de software e qualidade', 'Tecnologia', 'Remoto', 5500.00, 'FECHADA', 26),
-('Scrum Master', 'Aplicação de metodologias ágeis', 'Tecnologia', 'São Paulo - SP', 10500.00, 'FECHADA', 27),
-('Auxiliar Financeiro', 'Apoio em rotinas financeiras', 'Financeiro', 'São Paulo - SP', 2700.00, 'FECHADA', 28),
-('Gestor de Tráfego Pago', 'Anúncios online e estratégias', 'Marketing', 'Remoto', 7000.00, 'FECHADA', 29),
-('Cientista de Dados', 'Modelos preditivos', 'Business Intelligence', 'São Paulo - SP', 14000.00, 'FECHADA', 30),
-('Analista de Suporte Sênior', 'Atendimento nível 3', 'Tecnologia', 'Rio de Janeiro - RJ', 6000.00, 'FECHADA', 31);
+('Desenvolvedor Backend Pleno', 'Tecnologia', 'São Paulo - SP', 'Atuação no desenvolvimento de APIs e microsserviços em Python e Node.js.', 'Experiência com Django, REST, Docker e bancos relacionais.', 'Vale-refeição, plano de saúde e bônus anual.', 'fechada', 1),
+
+('Analista de Marketing Digital', 'Marketing', 'Remoto', 'Responsável por campanhas de mídia paga e SEO.', 'Domínio de Google Ads, Meta Ads e Google Analytics.', 'Horário flexível e auxílio home office.', 'fechada', 2),
+
+('Engenheiro de Dados', 'Tecnologia', 'Belo Horizonte - MG', 'Desenvolver pipelines de dados e modelagem de Data Lake.', 'Conhecimento em Spark, Python e SQL.', 'Plano odontológico e vale-alimentação.', 'fechada', 3),
+
+('Designer UX/UI', 'Design', 'Curitiba - PR', 'Criação de interfaces digitais e protótipos de alta fidelidade.', 'Figma, noções de HTML/CSS e boas práticas de acessibilidade.', 'Day off de aniversário e vale-cultura.', 'fechada', 4),
+
+('Gerente de Projetos', 'PMO', 'Rio de Janeiro - RJ', 'Gestão de cronogramas, riscos e recursos de projetos ágeis.', 'Certificação PMP ou Scrum Master.', 'Bônus por performance e previdência privada.', 'fechada', 5),
+
+('Analista Financeiro Júnior', 'Financeiro', 'São Paulo - SP', 'Controle de contas a pagar e conciliação bancária.', 'Excel avançado e noções de contabilidade.', 'Vale-transporte e plano de saúde.', 'fechada', 6),
+
+('Coordenador de RH', 'Recursos Humanos', 'Porto Alegre - RS', 'Gestão de equipe de recrutamento e folha de pagamento.', 'Experiência em liderança e legislação trabalhista.', 'Plano de carreira e gympass.', 'fechada', 7),
+
+('Analista de Suporte Técnico', 'Tecnologia', 'Recife - PE', 'Atendimento de chamados e manutenção de sistemas internos.', 'Conhecimento em Linux, redes e hardware.', 'Vale-refeição e assistência médica.', 'fechada', 8),
+
+('Engenheiro de Software Sênior', 'Tecnologia', 'Florianópolis - SC', 'Desenvolvimento de sistemas escaláveis e de alta disponibilidade.', 'Experiência com AWS, Go e arquitetura distribuída.', 'Stock options e plano de saúde premium.', 'fechada', 9),
+
+('Especialista em Segurança da Informação', 'Tecnologia', 'São Paulo - SP', 'Implementação de políticas de segurança e gestão de vulnerabilidades.', 'Certificações CISSP ou CompTIA Security+.','Bônus anual e trabalho híbrido.', 'fechada', 10),
+
+('Analista de Dados', 'Business Intelligence', 'Remoto', 'Criação de dashboards e relatórios estratégicos.', 'Power BI, SQL e Python.', 'Auxílio home office e cursos online.', 'fechada', 11),
+
+('Estagiário de Desenvolvimento', 'Tecnologia', 'São Paulo - SP', 'Apoiar a equipe de desenvolvimento em projetos internos.', 'Conhecimentos básicos em JavaScript e Git.', 'Bolsa auxílio e vale-transporte.', 'fechada', 12),
+
+('Assistente Administrativo', 'Administrativo', 'Campinas - SP', 'Organização de documentos e apoio em rotinas administrativas.', 'Boa comunicação e domínio do pacote Office.', 'Vale-refeição e assistência odontológica.', 'fechada', 13),
+
+('Coordenador de Vendas', 'Comercial', 'Fortaleza - CE', 'Gestão de equipe de representantes e metas regionais.', 'Experiência em CRM e gestão comercial.', 'Comissões e carro da empresa.', 'fechada', 14),
+
+('Desenvolvedor Frontend React', 'Tecnologia', 'Remoto', 'Desenvolvimento de interfaces web responsivas em React.', 'JavaScript, React, Redux e testes automatizados.', 'Trabalho remoto integral e bônus anual.', 'fechada', 15),
+
+('Analista de Produto', 'Produto', 'São Paulo - SP', 'Gestão de backlog e definição de roadmap de produtos.', 'Experiência em metodologias ágeis e análise de métricas.', 'Ambiente colaborativo e plano odontológico.', 'fechada', 16),
+
+('Redator de Conteúdo', 'Marketing', 'Curitiba - PR', 'Criação de conteúdo para blogs e redes sociais.', 'Excelente escrita e noções de SEO.', 'Horário flexível e vale-cultura.', 'fechada', 17),
+
+('Arquiteto de Software', 'Tecnologia', 'Belo Horizonte - MG', 'Definição de padrões e arquitetura de sistemas complexos.', 'Experiência com microserviços e cloud computing.', 'Participação nos lucros e plano de saúde.', 'fechada', 18),
+
+('Técnico de Infraestrutura', 'TI', 'Porto Alegre - RS', 'Manutenção de servidores e redes corporativas.', 'Conhecimentos em VMware e Windows Server.', 'Auxílio transporte e refeitório no local.', 'fechada', 19),
+
+('Analista de Qualidade de Software', 'QA', 'São Paulo - SP', 'Planejamento e execução de testes automatizados e manuais.', 'Selenium, Cypress e metodologia ágil.', 'Plano de saúde e vale-refeição.', 'fechada', 20);
 
 
 CREATE TABLE candidatos (
@@ -245,8 +254,10 @@ CREATE TABLE candidatos (
     curriculo_url TEXT,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 -- inserts de candidatos
-INSERT INTO candidates (nome, email, telefone, curriculo_url) VALUES
+
+INSERT INTO candidatos(nome, email, telefone, curriculo_url) VALUES
 ('Ana Rodrigues', 'ana.rodrigues@example.com', '(11)98877-1001', 'curriculos/ana_rodrigues.pdf'),
 ('Bruno Silva', 'bruno.silva@example.com', '(21)97766-1002', 'curriculos/bruno_silva.pdf'),
 ('Carla Mendes', 'carla.mendes@example.com', '(31)96555-1003', 'curriculos/carla_mendes.pdf'),
@@ -355,7 +366,7 @@ CREATE TABLE candidaturas (
     candidate_id INTEGER REFERENCES candidatos(id),
     etapa VARCHAR(50) DEFAULT 'triagem', 
     data_candidatura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE (job_id, candidate_id) -- evita duplicação de candidatura
+    UNIQUE (job_id, candidate_id) 
 );
 
 -- inserts de candidaturas
