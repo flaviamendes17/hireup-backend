@@ -1,114 +1,120 @@
 CREATE DATABASE hireup;
 \c hireup;
 
-CREATE TABLE usuarios (
-    id SERIAL PRIMARY KEY,
-    nome VARCHAR(200) NOT NULL,
+CREATE TABLE users (
+    id UUID PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
     email VARCHAR(200) NOT NULL UNIQUE,
-    senha VARCHAR(200) NOT NULL
+    password_hash VARCHAR(200) NOT NULL,
+    role VARCHAR(50) DEFAULT 'candidate',
+    phone VARCHAR(20),
+    bio TEXT,
+    avatar_url VARCHAR(500),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- os 100 usuarios 
-INSERT INTO usuarios (nome, email, senha) VALUES ('Ana Clara Souza', 'ana.souza1@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Bruno Martins', 'bruno.martins2@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Carla Ferreira', 'carla.ferreira3@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Diego Andrade', 'diego.andrade4@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Eduarda Lima', 'eduarda.lima5@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Felipe Carvalho', 'felipe.carvalho6@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Gabriela Torres', 'gabriela.torres7@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Henrique Duarte', 'henrique.duarte8@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Isabelle Araújo', 'isabelle.araujo9@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('João Pedro Alves', 'joao.alves10@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Karen Gomes', 'karen.gomes11@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Lucas Barros', 'lucas.barros12@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Mariana Monteiro', 'mariana.monteiro13@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Nathan Costa', 'nathan.costa14@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Olivia Batista', 'olivia.batista15@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Paulo Viana', 'paulo.viana16@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Queila Barbosa', 'queila.barbosa17@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Rafael Pinto', 'rafael.pinto18@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Sabrina Dias', 'sabrina.dias19@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Thiago Ribeiro', 'thiago.ribeiro20@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Ursula Macedo', 'ursula.macedo21@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Vinícius Rocha', 'vinicius.rocha22@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Wanessa Duarte', 'wanessa.duarte23@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Xavier Lopes', 'xavier.lopes24@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Yasmin Souza', 'yasmin.souza25@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Zeca Oliveira', 'zeca.oliveira26@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Amanda Fagundes', 'amanda.fagundes27@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Breno Teixeira', 'breno.teixeira28@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Camila Ramos', 'camila.ramos29@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Daniel Correia', 'daniel.correia30@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Elisa Pires', 'elisa.pries31@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Fernando Almeida', 'fernando.almeida32@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Giovana Castro', 'giovana.castro33@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Heitor Nunes', 'heitor.nunes34@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Ivan Mendes', 'ivan.mendes35@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Jéssica Sales', 'jessica.sales36@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Kauã Fonseca', 'kaua.fonseca37@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Larissa Braga', 'larissa.braga38@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Matheus Rezende', 'matheus.rezende39@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Nicole Assis', 'nicole.assis40@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Otávio Freitas', 'otavio.freitas41@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Priscila Lopes', 'priscila.lopes42@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Ruan Martins', 'ruan.martins43@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Sara Queiroz', 'sara.queiroz44@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Tales Morais', 'tales.morais45@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Vitória Mendes', 'vitoria.mendes46@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Wellington Cunha', 'wellington.cunha47@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Yuri Cardoso', 'yuri.cardoso48@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Adriana Luz', 'adriana.luz49@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Bernardo Guimarães', 'bernardo.guimaraes50@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Catarina Melo', 'catarina.melo51@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Douglas Saraiva', 'douglas.saraiva52@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Evelyn Teles', 'evelyn.teles53@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Fátima Rocha', 'fatima.rocha54@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Guilherme Prado', 'guilherme.prado55@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Helena Simões', 'helena.simoes56@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Ícaro Bezerra', 'icaro.bezerra57@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Júlia Mattos', 'julia.mattos58@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Kelly Santos', 'kelly.santos59@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Leonardo Cunha', 'leonardo.cunha60@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Marcelo Souza', 'marcelo.souza61@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Nathalia Ribeiro', 'nathalia.ribeiro62@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Otília Campos', 'otilia.campos63@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Pedro Lopes', 'pedro.lopes64@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Rafaela Chaves', 'rafaela.chaves65@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Samuel Ferreira', 'samuel.ferreira66@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Talita Moraes', 'talita.moraes67@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Victor Leite', 'victor.leite68@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('William Andrade', 'william.andrade69@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Yolanda Alves', 'yolanda.alves70@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Aline Sampaio', 'aline.sampaio71@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Bárbara Farias', 'barbara.farias72@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('César Melo', 'cesar.melo73@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Denise Oliveira', 'denise.oliveira74@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Everton Moreira', 'everton.moreira75@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Flávia Cunha', 'flavia.cunha76@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Giovanni Mendes', 'giovanni.mendes77@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Hugo Braga', 'hugo.braga78@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Ingrid Santos', 'ingrid.santos79@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Jonas Furtado', 'jonas.furtado80@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Keila Oliveira', 'keila.oliveira81@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Luiza Costa', 'luiza.costa82@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Maurício César', 'mauricio.cesar83@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Natália Carvalho', 'natalia.carvalho84@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Orlando Vieira', 'orlando.vieira85@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Patrícia Souza', 'patricia.souza86@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Renato Batista', 'renato.batista87@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Sérgio Barros', 'sergio.barros88@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Tatiane Lopes', 'tatiane.lopes89@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Ubirajara Dias', 'ubirajara.dias90@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Vera Lúcia', 'vera.lucia91@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Wesley Braga', 'wesley.braga92@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Yuri Souza', 'yuri.souza93@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Ágatha Neves', 'agatha.neves94@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Beto Mendonça', 'beto.mendonca95@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Carol Linhares', 'carol.linhares96@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Davi Couto', 'davi.couto97@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Eliane Santos', 'eliane.santos98@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Fábio Castro', 'fabio.castro99@example.com', 'senha123');
-INSERT INTO usuarios (nome, email, senha) VALUES ('Gabriel Neri', 'gabriel.neri100@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Ana Clara Souza', 'ana.souza1@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Bruno Martins', 'bruno.martins2@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Carla Ferreira', 'carla.ferreira3@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Diego Andrade', 'diego.andrade4@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Eduarda Lima', 'eduarda.lima5@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Felipe Carvalho', 'felipe.carvalho6@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Gabriela Torres', 'gabriela.torres7@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Henrique Duarte', 'henrique.duarte8@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Isabelle Araújo', 'isabelle.araujo9@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('João Pedro Alves', 'joao.alves10@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Karen Gomes', 'karen.gomes11@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Lucas Barros', 'lucas.barros12@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Mariana Monteiro', 'mariana.monteiro13@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Nathan Costa', 'nathan.costa14@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Olivia Batista', 'olivia.batista15@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Paulo Viana', 'paulo.viana16@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Queila Barbosa', 'queila.barbosa17@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Rafael Pinto', 'rafael.pinto18@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Sabrina Dias', 'sabrina.dias19@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Thiago Ribeiro', 'thiago.ribeiro20@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Ursula Macedo', 'ursula.macedo21@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Vinícius Rocha', 'vinicius.rocha22@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Wanessa Duarte', 'wanessa.duarte23@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Xavier Lopes', 'xavier.lopes24@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Yasmin Souza', 'yasmin.souza25@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Zeca Oliveira', 'zeca.oliveira26@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Amanda Fagundes', 'amanda.fagundes27@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Breno Teixeira', 'breno.teixeira28@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Camila Ramos', 'camila.ramos29@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Daniel Correia', 'daniel.correia30@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Elisa Pires', 'elisa.pries31@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Fernando Almeida', 'fernando.almeida32@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Giovana Castro', 'giovana.castro33@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Heitor Nunes', 'heitor.nunes34@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Ivan Mendes', 'ivan.mendes35@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Jéssica Sales', 'jessica.sales36@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Kauã Fonseca', 'kaua.fonseca37@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Larissa Braga', 'larissa.braga38@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Matheus Rezende', 'matheus.rezende39@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Nicole Assis', 'nicole.assis40@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Otávio Freitas', 'otavio.freitas41@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Priscila Lopes', 'priscila.lopes42@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Ruan Martins', 'ruan.martins43@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Sara Queiroz', 'sara.queiroz44@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Tales Morais', 'tales.morais45@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Vitória Mendes', 'vitoria.mendes46@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Wellington Cunha', 'wellington.cunha47@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Yuri Cardoso', 'yuri.cardoso48@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Adriana Luz', 'adriana.luz49@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Bernardo Guimarães', 'bernardo.guimaraes50@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Catarina Melo', 'catarina.melo51@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Douglas Saraiva', 'douglas.saraiva52@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Evelyn Teles', 'evelyn.teles53@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Fátima Rocha', 'fatima.rocha54@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Guilherme Prado', 'guilherme.prado55@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Helena Simões', 'helena.simoes56@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Ícaro Bezerra', 'icaro.bezerra57@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Júlia Mattos', 'julia.mattos58@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Kelly Santos', 'kelly.santos59@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Leonardo Cunha', 'leonardo.cunha60@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Marcelo Souza', 'marcelo.souza61@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Nathalia Ribeiro', 'nathalia.ribeiro62@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Otília Campos', 'otilia.campos63@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Pedro Lopes', 'pedro.lopes64@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Rafaela Chaves', 'rafaela.chaves65@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Samuel Ferreira', 'samuel.ferreira66@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Talita Moraes', 'talita.moraes67@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Victor Leite', 'victor.leite68@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('William Andrade', 'william.andrade69@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Yolanda Alves', 'yolanda.alves70@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Aline Sampaio', 'aline.sampaio71@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Bárbara Farias', 'barbara.farias72@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('César Melo', 'cesar.melo73@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Denise Oliveira', 'denise.oliveira74@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Everton Moreira', 'everton.moreira75@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Flávia Cunha', 'flavia.cunha76@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Giovanni Mendes', 'giovanni.mendes77@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Hugo Braga', 'hugo.braga78@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Ingrid Santos', 'ingrid.santos79@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Jonas Furtado', 'jonas.furtado80@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Keila Oliveira', 'keila.oliveira81@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Luiza Costa', 'luiza.costa82@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Maurício César', 'mauricio.cesar83@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Natália Carvalho', 'natalia.carvalho84@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Orlando Vieira', 'orlando.vieira85@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Patrícia Souza', 'patricia.souza86@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Renato Batista', 'renato.batista87@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Sérgio Barros', 'sergio.barros88@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Tatiane Lopes', 'tatiane.lopes89@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Ubirajara Dias', 'ubirajara.dias90@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Vera Lúcia', 'vera.lucia91@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Wesley Braga', 'wesley.braga92@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Yuri Souza', 'yuri.souza93@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Ágatha Neves', 'agatha.neves94@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Beto Mendonça', 'beto.mendonca95@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Carol Linhares', 'carol.linhares96@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Davi Couto', 'davi.couto97@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Eliane Santos', 'eliane.santos98@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Fábio Castro', 'fabio.castro99@example.com', 'senha123');
+INSERT INTO users (name, email, password_hash) VALUES ('Gabriel Neri', 'gabriel.neri100@example.com', 'senha123');
 
 
 CREATE TABLE vagas (
