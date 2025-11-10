@@ -2,7 +2,7 @@ CREATE DATABASE hireup;
 \c hireup;
 
 CREATE TABLE users (
-    id UUID PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
     email VARCHAR(200) NOT NULL UNIQUE,
     password_hash VARCHAR(200) NOT NULL,

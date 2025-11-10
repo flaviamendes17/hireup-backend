@@ -15,5 +15,5 @@ app.get("/", (req, res) => {
   res.send("🫱🏻‍🫲🏼 API HireUp rodando");
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🫱🏻‍🫲🏼 Servidor rodando na porta ${PORT}`));
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`🫱🏻‍🫲🏼 Servidor rodando em http://localhost:${PORT}`));
