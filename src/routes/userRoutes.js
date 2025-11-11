@@ -1,11 +1,7 @@
 import { Router } from 'express';
 import { listUsers, getUser, updateUser, deleteUser } from '../controllers/UserController.js';
-import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = Router();
-
-// Todas as rotas de usuários requerem autenticação
-router.use(authMiddleware);
 
 // GET /api/users - Listar todos os usuários
 router.get('/', listUsers);

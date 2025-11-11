@@ -7,26 +7,25 @@ import {
   deleteApplication,
   moveApplicationStage
 } from '../controllers/ApplicationController.js';
-import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = Router();
 
-// GET /api/applications - Listar todas as candidaturas (requer auth)
-router.get('/', authMiddleware, listApplications);
+// GET /api/applications - Listar todas as candidaturas
+router.get('/', listApplications);
 
-// POST /api/applications - Criar nova candidatura (público)
+// POST /api/applications - Criar nova candidatura
 router.post('/', createApplication);
 
-// GET /api/applications/:id - Buscar candidatura por ID (requer auth)
-router.get('/:id', authMiddleware, getApplication);
+// GET /api/applications/:id - Buscar candidatura por ID
+router.get('/:id', getApplication);
 
-// PUT /api/applications/:id - Atualizar candidatura (requer auth)
-router.put('/:id', authMiddleware, updateApplication);
+// PUT /api/applications/:id - Atualizar candidatura
+router.put('/:id', updateApplication);
 
-// DELETE /api/applications/:id - Deletar candidatura (requer auth)
-router.delete('/:id', authMiddleware, deleteApplication);
+// DELETE /api/applications/:id - Deletar candidatura
+router.delete('/:id', deleteApplication);
 
-// POST /api/applications/:id/move - Mover candidatura para outro estágio (requer auth)
-router.post('/:id/move', authMiddleware, moveApplicationStage);
+// POST /api/applications/:id/move - Mover candidatura para outro estágio
+router.post('/:id/move', moveApplicationStage);
 
 export default router;

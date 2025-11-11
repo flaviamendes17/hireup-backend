@@ -1,11 +1,7 @@
 import { Router } from 'express';
 import { listCompanies, createCompany, getCompany, updateCompany, deleteCompany } from '../controllers/CompanyController.js';
-import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = Router();
-
-// Todas as rotas de empresas requerem autenticação
-router.use(authMiddleware);
 
 // GET /api/companies - Listar todas as empresas
 router.get('/', listCompanies);
