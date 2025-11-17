@@ -120,7 +120,7 @@ CREATE TABLE vagas (
     requisitos TEXT,
     beneficios TEXT,
     status VARCHAR(50) DEFAULT 'aberta', 
-    criado_por INTEGER REFERENCES users(id),
+    criado_por INTEGER REFERENCES usuarios(id),
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -245,8 +245,9 @@ CREATE TABLE candidatos (
     curriculo_url TEXT,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 -- inserts de candidatos
-INSERT INTO candidates (nome, email, telefone, curriculo_url) VALUES
+INSERT INTO candidatos (nome, email, telefone, curriculo_url) VALUES
 ('Ana Rodrigues', 'ana.rodrigues@example.com', '(11)98877-1001', 'curriculos/ana_rodrigues.pdf'),
 ('Bruno Silva', 'bruno.silva@example.com', '(21)97766-1002', 'curriculos/bruno_silva.pdf'),
 ('Carla Mendes', 'carla.mendes@example.com', '(31)96555-1003', 'curriculos/carla_mendes.pdf'),
